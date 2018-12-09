@@ -1,0 +1,11 @@
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\bin\Debug\InsuranceCompanyModel.dll.config
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\bin\Debug\InsuranceCompanyModel.dll
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\bin\Debug\InsuranceCompanyModel.pdb
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\bin\Debug\EntityFramework.dll
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\bin\Debug\EntityFramework.xml
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\obj\Debug\InsuranceCompanyModel.csproj.CoreCompileInputs.cache
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\obj\Debug\InsuranceCompanyModel.csproj.CopyComplete
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\obj\Debug\InsuranceCompanyModel.dll
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompanyModel\obj\Debug\InsuranceCompanyModel.pdb
