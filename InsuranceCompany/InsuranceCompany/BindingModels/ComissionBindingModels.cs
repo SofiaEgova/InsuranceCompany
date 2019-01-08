@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InsuranceCompany.BindingModels
 {
-    public class ComissionGetBindingModel
+    public class ComissionGetBindingModel : PageSettingBinidingModel
     {
         public Guid? Id { get; set; }
 

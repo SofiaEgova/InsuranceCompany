@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InsuranceCompany.BindingModels
 {
-    public class UserGetBindingModel
+    public class UserGetBindingModel : PageSettingBinidingModel
     {
         public Guid? Id { get; set; }
     }
@@ -27,5 +27,7 @@ namespace InsuranceCompany.BindingModels
 
         [Required(ErrorMessage = "required")]
         public string FullName { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

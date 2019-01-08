@@ -20,6 +20,13 @@ namespace InsuranceCompany.Forms
         public MainForm()
         {
             InitializeComponent();
+
+            //ToolStripMenuItem fileItem = new ToolStripMenuItem("Файл");
+
+            //fileItem.DropDownItems.Add("Создать");
+            //fileItem.DropDownItems.Add(new ToolStripMenuItem("Сохранить"));
+
+            //menuStrip1.Items.Add(fileItem);
         }
     }
 }

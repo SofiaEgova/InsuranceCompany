@@ -88,7 +88,8 @@ namespace InsuranceCompany
                 FullName = entity.FullName,
                 Login = entity.Login,
                 Password = entity.Password,
-                UserRole = entity.UserRole
+                UserRole = entity.UserRole,
+                IsActive = entity.IsActive
             };
         }
     }

@@ -24,6 +24,7 @@ namespace InsuranceCompany
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(container.Resolve<AutorizationForm>());
             Application.Run(container.Resolve<MainForm>());
         }
 

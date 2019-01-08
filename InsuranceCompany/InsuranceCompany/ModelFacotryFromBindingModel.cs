@@ -102,6 +102,7 @@ namespace InsuranceCompany
             entity.Login = model.Login;
             entity.Password = model.Password;
             entity.UserRole = model.UserRole;
+            entity.IsActive = model.IsActive;
 
             return entity;
         }

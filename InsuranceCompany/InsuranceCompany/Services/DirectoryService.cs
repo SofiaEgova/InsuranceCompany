@@ -3,6 +3,7 @@ using InsuranceCompany.IServices;
 using InsuranceCompany.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,32 +24,133 @@ namespace InsuranceCompany.Services
 
         public ResultService<ContractPageViewModel> GetContracts(ContractGetBindingModel model)
         {
-            throw new NotImplementedException();
+            return _serviceContract.GetContracts(model);
         }
 
         public ResultService<DirectoryPageViewModel> GetDirectories(DirectoryGetBindingModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                int countPages = 0;
+                var query = _context.Directories.AsQueryable();
+
+                if (model.PageNumber.HasValue && model.PageSize.HasValue)
+                {
+                    countPages = (int)Math.Ceiling((double)query.Count() / model.PageSize.Value);
+                    query = query
+                                .Skip(model.PageSize.Value * model.PageNumber.Value)
+                                .Take(model.PageSize.Value);
+                }
+
+                var result = new DirectoryPageViewModel
+                {
+                    MaxCount = countPages,
+                    List = query.Select(ModelFactoryToViewModel.CreateDirectoryViewModel).ToList()
+                };
+
+                return ResultService<DirectoryPageViewModel>.Success(result);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService<DirectoryPageViewModel>.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService<DirectoryPageViewModel>.Error(ex);
+            }
         }
 
         public ResultService<DirectoryViewModel> GetDirectory(DirectoryGetBindingModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var entity = _context.Directories
+                                .FirstOrDefault(c => c.Id == model.Id);
+                if (entity == null)
+                {
+                    return ResultService<DirectoryViewModel>.Error("Error:", "Entity not found");
+                }
+
+                return ResultService<DirectoryViewModel>.Success(ModelFactoryToViewModel.CreateDirectoryViewModel(entity));
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService<DirectoryViewModel>.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService<DirectoryViewModel>.Error(ex);
+            }
         }
 
         public ResultService CreateDirectory(DirectorySetBindingModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var entity = ModelFacotryFromBindingModel.CreateDirectory(model);
+
+                _context.Directories.Add(entity);
+                _context.SaveChanges();
+
+                return ResultService.Success(entity.Id);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService.Error(ex);
+            }
         }
 
         public ResultService UpdateDirectory(DirectorySetBindingModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var entity = _context.Directories.FirstOrDefault(c => c.Id == model.Id);
+                if (entity == null)
+                {
+                    return ResultService.Error("Error:", "Entity not found");
+                }
+                entity = ModelFacotryFromBindingModel.CreateDirectory(model, entity);
+
+                _context.SaveChanges();
+
+                return ResultService.Success();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService.Error(ex);
+            }
         }
 
         public ResultService DeleteDirectory(DirectoryGetBindingModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var entity = _context.Directories.FirstOrDefault(c => c.Id == model.Id);
+                if (entity == null)
+                {
+                    return ResultService.Error("Error:", "Entity not found");
+                }
+                _context.Directories.Remove(entity);
+                _context.SaveChanges();
+
+                return ResultService.Success();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService.Error(ex);
+            }
         }
     }
 }

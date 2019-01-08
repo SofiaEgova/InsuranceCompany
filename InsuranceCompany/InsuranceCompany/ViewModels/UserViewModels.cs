@@ -19,5 +19,7 @@ namespace InsuranceCompany.ViewModels
         public int UserRole { get; set; }
 
         public string FullName { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

@@ -32,6 +32,9 @@ namespace InsuranceCompany.Models
         [DataMember]
         public string FullName { get; set; }
 
+        [DataMember]
+        public bool IsActive { get; set; }
+
         //-----------------------
 
         [ForeignKey("UserId")]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,64 @@ namespace InsuranceCompany
                 Succeeded = false;
             }
         }
+
+        public static ResultService Error(string key, string error)
+        {
+            var result = new ResultService();
+            result.Succeeded = false;
+            result.Errors.Add(new KeyValuePair<string, string>(key, error));
+
+            return result;
+        }
+
+        public static ResultService Error(Exception error)
+        {
+            var result = new ResultService();
+            result.Succeeded = false;
+            result.Errors.Add(new KeyValuePair<string, string>("Error:", error.Message));
+
+            while (error.InnerException != null)
+            {
+                error = error.InnerException;
+                result.Errors.Add(new KeyValuePair<string, string>("Inner error:", error.Message));
+            }
+
+            return result;
+        }
+
+        public static ResultService Error(DbEntityValidationException error)
+        {
+            var result = new ResultService();
+            result.Succeeded = false;
+            result.Errors.Add(new KeyValuePair<string, string>("DbEntityValidation Error:", error.Message));
+            foreach (var eve in error.EntityValidationErrors)
+            {
+                foreach (var ve in eve.ValidationErrors)
+                {
+                    result.Errors.Add(new KeyValuePair<string, string>("ValidationErrors:", string.Format("- Entity: \"{0}\", Error: \"{1}\"\r\n",
+                        ve.PropertyName, ve.ErrorMessage)));
+                }
+            }
+
+            return result;
+        }
+
+        public static ResultService Success()
+        {
+            return new ResultService
+            {
+                Succeeded = true
+            };
+        }
+
+        public static ResultService Success(object obj)
+        {
+            return new ResultService
+            {
+                Result = obj,
+                Succeeded = true
+            };
+        }
     }
 
     public class ResultService<T>
@@ -65,6 +124,56 @@ namespace InsuranceCompany
             {
                 Succeeded = false;
             }
+        }
+
+        public static ResultService<T> Error(Exception error)
+        {
+            var result = new ResultService<T>();
+            result.Succeeded = false;
+            result.Errors.Add(new KeyValuePair<string, string>("Error:", error.Message));
+            while (error.InnerException != null)
+            {
+                error = error.InnerException;
+                result.Errors.Add(new KeyValuePair<string, string>("Inner Error:", error.Message));
+            }
+
+            return result;
+        }
+
+        public static ResultService<T> Error(string key, string error)
+        {
+            var result = new ResultService<T>();
+
+            result.Succeeded = false;
+            result.Errors.Add(new KeyValuePair<string, string>(key, error));
+
+            return result;
+        }
+
+        public static ResultService<T> Error(DbEntityValidationException error)
+        {
+            var result = new ResultService<T>();
+            result.Succeeded = false;
+            result.Errors.Add(new KeyValuePair<string, string>("DbEntityValidation Error:", error.Message));
+            foreach (var eve in error.EntityValidationErrors)
+            {
+                foreach (var ve in eve.ValidationErrors)
+                {
+                    result.Errors.Add(new KeyValuePair<string, string>("ValidationErrors:", string.Format("- Entity: \"{0}\", Error: \"{1}\"\r\n",
+                        ve.PropertyName, ve.ErrorMessage)));
+                }
+            }
+
+            return result;
+        }
+
+        public static ResultService<T> Success(T result)
+        {
+            return new ResultService<T>
+            {
+                Succeeded = true,
+                Result = result
+            };
         }
     }
 }
