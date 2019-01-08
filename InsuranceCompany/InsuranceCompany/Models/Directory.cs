@@ -24,6 +24,10 @@ namespace InsuranceCompany.Models
         [DataMember]
         public int InsuranceFee { get; set; }
 
+        [Required]
+        [DataMember]
+        public int InsuranceType { get; set; }
+
         //-----------------------
 
         [ForeignKey("DirectoryId")]

@@ -27,3 +27,5 @@ D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\
 D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.exe
 D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.pdb
 D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Migrations.first.resources
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.csprojAssemblyReference.cache
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Migrations.addToDirectory.resources
