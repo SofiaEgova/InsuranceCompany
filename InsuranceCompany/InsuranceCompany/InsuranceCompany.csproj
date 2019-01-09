@@ -93,17 +93,47 @@
     <Compile Include="Enums\ContractStatus.cs" />
     <Compile Include="Enums\ContractTypes.cs" />
     <Compile Include="Enums\UserRoles.cs" />
+    <Compile Include="Forms\Admin\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\UsersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Forms\Admin\UsersControl.Designer.cs">
       <DependentUpon>UsersControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Agent\ClientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Agent\ClientControl.Designer.cs">
+      <DependentUpon>ClientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Agent\ContractControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Agent\ContractControl.Designer.cs">
+      <DependentUpon>ContractControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Agent\ContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Agent\ContractForm.Designer.cs">
+      <DependentUpon>ContractForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AutorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AutorizationForm.Designer.cs">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Booker\AgentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Booker\AgentControl.Designer.cs">
+      <DependentUpon>AgentControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -167,11 +197,26 @@
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\SalaryViewModels.cs" />
     <Compile Include="ViewModels\UserViewModels.cs" />
+    <EmbeddedResource Include="Forms\Admin\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\UsersControl.resx">
       <DependentUpon>UsersControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Agent\ClientControl.resx">
+      <DependentUpon>ClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Agent\ContractControl.resx">
+      <DependentUpon>ContractControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Agent\ContractForm.resx">
+      <DependentUpon>ContractForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AutorizationForm.resx">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Booker\AgentControl.resx">
+      <DependentUpon>AgentControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -212,9 +257,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Agent\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Add.png" />
   </ItemGroup>

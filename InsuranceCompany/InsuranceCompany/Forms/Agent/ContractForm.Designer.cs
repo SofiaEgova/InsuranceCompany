@@ -1,6 +1,6 @@
-﻿namespace InsuranceCompany.Forms
+﻿namespace InsuranceCompany.Forms.Agent
 {
-    partial class MainForm
+    partial class ContractForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.SuspendLayout();
             // 
-            // menuStrip
-            // 
-            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1339, 28);
-            this.menuStrip.TabIndex = 0;
-            this.menuStrip.Text = "menuStrip";
-            // 
-            // MainForm
+            // ContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1339, 668);
-            this.Controls.Add(this.menuStrip);
-            this.MainMenuStrip = this.menuStrip;
-            this.Name = "MainForm";
-            this.Text = "Страховая компания";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "ContractForm";
+            this.Text = "ContractForm";
+            this.Load += new System.EventHandler(this.ContractForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip;
     }
 }

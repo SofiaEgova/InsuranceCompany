@@ -31,5 +31,12 @@ namespace InsuranceCompany.Models
         //-----------------------
 
         public virtual User User { get; set; }
+
+        //-----------------------
+
+        public Comission() : base()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

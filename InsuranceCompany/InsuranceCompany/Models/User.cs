@@ -45,5 +45,12 @@ namespace InsuranceCompany.Models
         
         [ForeignKey("UserId")]
         public virtual List<Contract> Contracts { get; set; }
+
+        //-----------------------
+
+        public User() : base()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }

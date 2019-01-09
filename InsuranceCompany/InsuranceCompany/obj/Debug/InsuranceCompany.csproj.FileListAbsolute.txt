@@ -33,3 +33,9 @@ D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\
 D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Migrations.addToUser.resources
 D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Admin.UsersControl.resources
 D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.StandartControl.resources
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.csprojAssemblyReference.cache
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Admin.UserForm.resources
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.ClientControl.resources
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Booker.AgentControl.resources
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.ContractControl.resources
+D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.ContractForm.resources

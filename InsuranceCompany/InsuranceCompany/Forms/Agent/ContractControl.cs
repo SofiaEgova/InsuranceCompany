@@ -12,30 +12,39 @@ using Unity;
 using InsuranceCompany.IServices;
 using InsuranceCompany.Models;
 using InsuranceCompany.BindingModels;
+using InsuranceCompany.ViewModels;
 using Unity.Resolution;
-using InsuranceCompany.Enums;
 
-namespace InsuranceCompany.Forms.Admin
+namespace InsuranceCompany.Forms.Agent
 {
-    public partial class UsersControl : UserControl
+    public partial class ContractControl : UserControl
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
 
-        private readonly IUserService _service;
+        private readonly IContractService _serviceContract;
 
-        public UsersControl(IUserService service)
+        private readonly IUserService _serviceUser;
+
+        private readonly IClientService _serviceClient;
+
+        public ContractControl(IContractService serviceContract, IUserService serviceUser, IClientService serviceClient)
         {
             InitializeComponent();
-            _service = service;
+            _serviceContract = serviceContract;
+            _serviceUser = serviceUser;
+            _serviceClient = serviceClient;
 
             List<ColumnConfig> columns = new List<ColumnConfig>
             {
                 new ColumnConfig { Name = "Id", Title = "Id", Width = 100, Visible = false },
-                new ColumnConfig { Name = "Login", Title = "Логин", Width = 200, Visible = true },
-                new ColumnConfig { Name = "Password", Title = "Пароль", Width = 200, Visible = true },
-                new ColumnConfig { Name = "UserRole", Title = "Роль", Width = 200, Visible = true },
-                new ColumnConfig { Name = "FullName", Title = "ФИО", Width = 400, Visible = true }
+                new ColumnConfig { Name = "User", Title = "Агент", Width = 200, Visible = true },
+                new ColumnConfig { Name = "Client", Title = "Клиент", Width = 200, Visible = true },
+                new ColumnConfig { Name = "Date", Title = "Дата заключения", Width = 150, Visible = true },
+                new ColumnConfig { Name = "ExpirationDate", Title = "Дата окончания", Width = 150, Visible = true },
+                new ColumnConfig { Name = "Type", Title = "Тип", Width = 100, Visible = true },
+                new ColumnConfig { Name = "Amount", Title = "Сумма", Width = 100, Visible = true },
+                new ColumnConfig { Name = "Status", Title = "Статус", Width = 100, Visible = true }
             };
 
             List<string> hideToolStripButtons = new List<string> { "toolStripDropDownButtonMoves" };
@@ -70,7 +79,7 @@ namespace InsuranceCompany.Forms.Admin
 
         private int LoadRecords(int pageNumber, int pageSize)
         {
-            var result = _service.GetUsers(new UserGetBindingModel { PageNumber = pageNumber, PageSize = pageSize });
+            var result = _serviceContract.GetContracts(new ContractGetBindingModel { PageNumber = pageNumber, PageSize = pageSize });
             if (!result.Succeeded)
             {
                 throw new Exception("При загрузке возникла ошибка: " + result.Errors);
@@ -78,12 +87,17 @@ namespace InsuranceCompany.Forms.Admin
             standartControl1.GetDataGridViewRows.Clear();
             foreach (var res in result.Result.List)
             {
+                var resUser = (UserViewModel)_serviceUser.GetUsers(new UserGetBindingModel { }).Result.List.FirstOrDefault(u => u.Id == res.UserId);
+                var resClient = (ClientViewModel)_serviceClient.GetClients(new ClientGetBindingModel { }).Result.List.FirstOrDefault(c => c.Id == res.ClientId);
                 standartControl1.GetDataGridViewRows.Add(
                     res.Id,
-                    res.Login,
-                    res.Password,
-                    (UserRoles)res.UserRole,
-                    res.FullName
+                    resUser.FullName,
+                    resClient.FullName,
+                    res.Date,
+                    res.ExpirationDate,
+                    res.Type,
+                    res.Amount,
+                    res.Status
                 );
             }
             return result.Result.MaxCount;
@@ -91,12 +105,12 @@ namespace InsuranceCompany.Forms.Admin
 
         private void AddRecord()
         {
-            var form = Container.Resolve<UserForm>(
+            var form = Container.Resolve<ContractForm>(
                 new ParameterOverrides
                 {
                     { "id", Guid.Empty }
                 }
-                .OnType<UserForm>());
+                .OnType<ContractForm>());
             if (form.ShowDialog() == DialogResult.OK)
             {
                 standartControl1.LoadPage();
@@ -108,12 +122,12 @@ namespace InsuranceCompany.Forms.Admin
             if (standartControl1.GetDataGridViewSelectedRows.Count == 1)
             {
                 Guid id = new Guid(standartControl1.GetDataGridViewSelectedRows[0].Cells[0].Value.ToString());
-                var form = Container.Resolve<UserForm>(
+                var form = Container.Resolve<ContractForm>(
                     new ParameterOverrides
                     {
                         { "id", id }
                     }
-                    .OnType<UserForm>());
+                    .OnType<ContractForm>());
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     standartControl1.LoadPage();
@@ -130,7 +144,7 @@ namespace InsuranceCompany.Forms.Admin
                     for (int i = 0; i < standartControl1.GetDataGridViewSelectedRows.Count; ++i)
                     {
                         Guid id = new Guid(standartControl1.GetDataGridViewSelectedRows[i].Cells[0].Value.ToString());
-                        var result = _service.DeleteUser(new UserGetBindingModel { Id = id });
+                        var result = _serviceContract.DeleteContract(new ContractGetBindingModel { Id = id });
                         if (!result.Succeeded)
                         {
                             throw new Exception("При загрузке возникла ошибка: " + result.Errors);

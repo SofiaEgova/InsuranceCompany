@@ -31,5 +31,12 @@ namespace InsuranceCompany.Models
         //-----------------------
 
         public virtual Contract Contract { get; set; }
+
+        //-----------------------
+
+        public InsuranceCase() : base()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }
