@@ -170,5 +170,28 @@ namespace InsuranceCompany.Services
                 return ResultService.Error(ex);
             }
         }
+
+        public ResultService GetActiveUser()
+        {
+            try
+            {
+                var entity = _context.Users
+                                .FirstOrDefault(c => c.IsActive==true);
+                if (entity == null)
+                {
+                    return ResultService.Error("Error:", "Entity not found");
+                }
+
+                return ResultService.Success(ModelFactoryToViewModel.CreateUserViewModel(entity));
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService.Error(ex);
+            }
+        }
     }
 }

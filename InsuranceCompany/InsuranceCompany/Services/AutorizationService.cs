@@ -14,8 +14,6 @@ namespace InsuranceCompany.Services
     {
         private static readonly InsuranceCompanyDbContext _context = new InsuranceCompanyDbContext();
 
-        private static readonly IUserService service;
-
         private static Encoding ascii = Encoding.ASCII;
 
         private static UserViewModel _user;

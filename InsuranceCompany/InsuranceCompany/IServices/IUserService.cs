@@ -65,5 +65,12 @@ namespace InsuranceCompany.IServices
         /// <param name="model"></param>
         /// <returns></returns>
         ResultService DeleteUser(UserGetBindingModel model);
+
+        /// <summary>
+        /// Поиск активного пользователя
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        ResultService GetActiveUser();
     }
 }

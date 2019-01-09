@@ -93,6 +93,12 @@
     <Compile Include="Enums\ContractStatus.cs" />
     <Compile Include="Enums\ContractTypes.cs" />
     <Compile Include="Enums\UserRoles.cs" />
+    <Compile Include="Forms\Admin\UsersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\UsersControl.Designer.cs">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AutorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,7 @@
     <Compile Include="ModelFacotryFromBindingModel.cs" />
     <Compile Include="ModelFactoryToViewModel.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\ColumnConfig.cs" />
     <Compile Include="Models\Comission.cs" />
     <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\Directory.cs" />
@@ -146,6 +153,12 @@
     <Compile Include="Services\InsuranceCaseService.cs" />
     <Compile Include="Services\SalaryService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Forms\StandartControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\StandartControl.designer.cs">
+      <DependentUpon>StandartControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\ClientViewModels.cs" />
     <Compile Include="ViewModels\ComissionViewModels.cs" />
     <Compile Include="ViewModels\ContractViewModels.cs" />
@@ -154,6 +167,9 @@
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\SalaryViewModels.cs" />
     <Compile Include="ViewModels\UserViewModels.cs" />
+    <EmbeddedResource Include="Forms\Admin\UsersControl.resx">
+      <DependentUpon>UsersControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AutorizationForm.resx">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,7 +193,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Forms\StandartControl.resx">
+      <DependentUpon>StandartControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -192,6 +212,38 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\Agent\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Del.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ref.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Right.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Up.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Upd.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
