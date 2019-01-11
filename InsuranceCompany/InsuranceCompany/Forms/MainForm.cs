@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,17 +25,20 @@ namespace InsuranceCompany.Forms
 
         private readonly IUserService _service;
 
+        private readonly ISerializeService _serviceS;
+
         private UserViewModel user;
 
-        public MainForm(IUserService service)
+        public MainForm(IUserService service, ISerializeService serviceS)
         {
             InitializeComponent();
             _service = service;
+            _serviceS = serviceS;
 
             var result = _service.GetActiveUser();
             if (!result.Succeeded)
             {
-                throw new Exception("При загрузке возникла ошибка: "+ result.Errors);
+                throw new Exception("При загрузке возникла ошибка: " + result.Errors);
             }
             user = (UserViewModel)result.Result;
 
@@ -60,10 +64,10 @@ namespace InsuranceCompany.Forms
         {
             ToolStripMenuItem usersItem = new ToolStripMenuItem("Пользователи");
             menuStrip.Items.Add(usersItem);
-            ToolStripMenuItem archiveItem = new ToolStripMenuItem("Архивировать данные");
-            menuStrip.Items.Add(archiveItem);
+            ToolStripMenuItem archiveAdminItem = new ToolStripMenuItem("Архивировать данные");
+            menuStrip.Items.Add(archiveAdminItem);
             usersItem.Click += usersItemToolStripMenuItem_Click;
-            archiveItem.Click += archiveItemToolStripMenuItem_Click;
+            archiveAdminItem.Click += archiveAdminItemToolStripMenuItem_Click;
         }
 
         private void usersItemToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,6 +75,29 @@ namespace InsuranceCompany.Forms
             var control = Container.Resolve<UsersControl>();
             ApplyControl(control);
             control.LoadData();
+        }
+
+        private void archiveAdminItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Сделать резервную копию?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                SaveFileDialog sfd = new SaveFileDialog { Filter = "Json files (*.json)|*.json|Word files (*.doc)|*.doc" };
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        StreamWriter writer = new StreamWriter(sfd.FileName);
+                        writer.WriteLine(_serviceS.GetDataFromAdmin());
+                        writer.Dispose();
+
+                        MessageBox.Show("Данные сохранены успешно", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         #endregion
@@ -84,12 +111,12 @@ namespace InsuranceCompany.Forms
             menuStrip.Items.Add(contractsItem);
             ToolStripMenuItem printItem = new ToolStripMenuItem("Печать");
             menuStrip.Items.Add(printItem);
-            ToolStripMenuItem archiveItem = new ToolStripMenuItem("Архивировать данные");
-            menuStrip.Items.Add(archiveItem);
+            ToolStripMenuItem archiveAgentItem = new ToolStripMenuItem("Архивировать данные");
+            menuStrip.Items.Add(archiveAgentItem);
             clientsItem.Click += clientsItemToolStripMenuItem_Click;
             contractsItem.Click += contractsItemToolStripMenuItem_Click;
             printItem.Click += printItemToolStripMenuItem_Click;
-            archiveItem.Click += archiveItemToolStripMenuItem_Click;
+            archiveAgentItem.Click += archiveAgentItemToolStripMenuItem_Click;
         }
 
         private void clientsItemToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,6 +137,29 @@ namespace InsuranceCompany.Forms
         {
 
         }
+
+        private void archiveAgentItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Сделать резервную копию?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                SaveFileDialog sfd = new SaveFileDialog { Filter = "Json files (*.json)|*.json|Word files (*.doc)|*.doc" };
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        StreamWriter writer = new StreamWriter(sfd.FileName);
+                        writer.WriteLine(_serviceS.GetDataFromAgent());
+                        writer.Dispose();
+
+                        MessageBox.Show("Данные сохранены успешно", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
         #endregion
 
         #region Booker
@@ -119,11 +169,11 @@ namespace InsuranceCompany.Forms
             menuStrip.Items.Add(agentsItem);
             ToolStripMenuItem wageListItem = new ToolStripMenuItem("Зарплатная ведомость");
             menuStrip.Items.Add(wageListItem);
-            ToolStripMenuItem archiveItem = new ToolStripMenuItem("Архивировать данные");
-            menuStrip.Items.Add(archiveItem);
+            ToolStripMenuItem archiveBookerItem = new ToolStripMenuItem("Архивировать данные");
+            menuStrip.Items.Add(archiveBookerItem);
             agentsItem.Click += agentsItemToolStripMenuItem_Click;
             wageListItem.Click += wageListItemToolStripMenuItem_Click;
-            archiveItem.Click += archiveItemToolStripMenuItem_Click;
+            archiveBookerItem.Click += archiveBookerItemToolStripMenuItem_Click;
         }
         private void agentsItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -133,12 +183,32 @@ namespace InsuranceCompany.Forms
         {
 
         }
+
+        private void archiveBookerItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Сделать резервную копию?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                SaveFileDialog sfd = new SaveFileDialog { Filter = "Json files (*.json)|*.json|Word files (*.doc)|*.doc" };
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        StreamWriter writer = new StreamWriter(sfd.FileName);
+                        writer.WriteLine(_serviceS.GetDataFromBooker());
+                        writer.Dispose();
+
+                        MessageBox.Show("Данные сохранены успешно", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
         #endregion
 
-        private void archiveItemToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void ApplyControl(Control control)
         {

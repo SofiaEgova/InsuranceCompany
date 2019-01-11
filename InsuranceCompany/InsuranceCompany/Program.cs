@@ -39,6 +39,7 @@ namespace InsuranceCompany
             currentContainer.RegisterType<IInsuranceCaseService, InsuranceCaseService>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<ISalaryService, SalaryService>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IUserService, UserService>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ISerializeService, SerializeService>(new HierarchicalLifetimeManager());
 
             currentContainer
         .RegisterType<MainForm>()

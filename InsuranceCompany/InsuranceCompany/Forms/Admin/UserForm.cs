@@ -52,8 +52,6 @@ namespace InsuranceCompany.Forms.Admin
             var result = _service.GetUser(new UserGetBindingModel { Id = _id.Value });
             if (!result.Succeeded)
             {
-                //Program.PrintErrorMessage("При загрузке возникла ошибка: ", result.Errors);
-                //Close();
                 throw new Exception("При загрузке возникла ошибка: " + result.Errors);
             }
             var entity = result.Result;
@@ -96,7 +94,6 @@ namespace InsuranceCompany.Forms.Admin
                 {
                     result = _service.CreateUser(new UserSetBindingModel
                     {
-                        //Id = Guid.NewGuid(),
                         Login = textBoxLogin.Text,
                         Password = textBoxPassword.Text,
                         UserRole = (int)role,
@@ -127,8 +124,6 @@ namespace InsuranceCompany.Forms.Admin
                 }
                 else
                 {
-                    //Program.PrintErrorMessage("При сохранении возникла ошибка: ", result.Errors);
-                    //return false;
                     throw new Exception("При загрузке возникла ошибка: " + result.Errors);
                 }
             }

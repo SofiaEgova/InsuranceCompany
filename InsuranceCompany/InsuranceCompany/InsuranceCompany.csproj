@@ -148,6 +148,7 @@
     <Compile Include="IServices\IDirectoryService.cs" />
     <Compile Include="IServices\IInsuranceCaseService.cs" />
     <Compile Include="IServices\ISalaryService.cs" />
+    <Compile Include="IServices\ISerializeService.cs" />
     <Compile Include="IServices\IUserService.cs" />
     <Compile Include="Migrations\201901081410220_first.cs" />
     <Compile Include="Migrations\201901081410220_first.Designer.cs">
@@ -182,6 +183,7 @@
     <Compile Include="Services\DirectoryService.cs" />
     <Compile Include="Services\InsuranceCaseService.cs" />
     <Compile Include="Services\SalaryService.cs" />
+    <Compile Include="Services\SerializeService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Forms\StandartControl.cs">
       <SubType>UserControl</SubType>
