@@ -61,7 +61,7 @@ namespace InsuranceCompany.Services
             msClient.Close();
 
             return
-                "{\n" + "    \"Contractss\": " + contractsJSON + ",\n" +
+                "{\n" + "    \"Contracts\": " + contractsJSON + ",\n" +
                 "    \"Clients\": " + clientsJSON + "}";
         }
 

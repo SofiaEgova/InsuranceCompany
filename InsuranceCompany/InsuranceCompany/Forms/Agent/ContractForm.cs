@@ -1,4 +1,7 @@
-﻿using InsuranceCompany.IServices;
+﻿using InsuranceCompany.BindingModels;
+using InsuranceCompany.Enums;
+using InsuranceCompany.IServices;
+using InsuranceCompany.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 using Unity.Attributes;
+using Unity.Resolution;
 
 namespace InsuranceCompany.Forms.Agent
 {
@@ -24,122 +28,122 @@ namespace InsuranceCompany.Forms.Agent
 
         private readonly IClientService _serviceClient;
 
-        private Guid? _id = null;
-
-        public ContractForm(IContractService serviceContract, IUserService serviceUser, IClientService serviceClient, Guid? id = null)
+        public ContractForm(IContractService serviceContract, IUserService serviceUser, IClientService serviceClient)
         {
             InitializeComponent();
             _serviceClient = serviceClient;
             _serviceContract = serviceContract;
             _serviceUser = serviceUser;
 
-            if (id != Guid.Empty)
-            {
-                _id = id;
-            }
         }
 
         private void ContractForm_Load(object sender, EventArgs e)
         {
+            var clients = _serviceClient.GetClients(new ClientGetBindingModel { });
+            comboBoxClients.ValueMember = "Id";
+            comboBoxClients.DisplayMember = "FullName";
+            comboBoxClients.DataSource = clients.Result.List;
+            comboBoxClients.SelectedItem = null;
+            dateTimePickerFrom.Value = DateTime.Now;
+            comboBoxType.ValueMember = "Value";
+            comboBoxType.DisplayMember = "Display";
+            comboBoxType.DataSource = Enum.GetValues(typeof(ContractTypes));
+            comboBoxType.SelectedItem = null;
+        }
 
+        private void buttonAddClient_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<ClientForm>(new ParameterOverrides
+                {
+                    { "id", Guid.Empty }
+                }
+                .OnType<ClientForm>());
+            form.ShowDialog();
+        }
 
-
-            if (_id.HasValue)
+        private bool CheckFill()
+        {
+            if (string.IsNullOrEmpty(textBoxAmount.Text))
             {
-                LoadData();
+                try
+                {
+                    Convert.ToInt32(textBoxAmount.Text);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            if (comboBoxClients.SelectedValue == null)
+            {
+                return false;
+            }
+            if (comboBoxType.SelectedValue == null)
+            {
+                return false;
+            }
+            if (dateTimePickerTo.Value > dateTimePickerFrom.Value)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private bool Save()
+        {
+            if (CheckFill())
+            {
+                Enum.TryParse<ContractTypes>(comboBoxType.SelectedValue.ToString(), out ContractTypes type);
+                ResultService result;
+                var user = _serviceUser.GetActiveUser();
+                result = _serviceContract.CreateContract(new ContractSetBindingModel
+                {
+                    UserId = ((UserViewModel)user.Result).Id,
+                    ClientId = (Guid)comboBoxClients.SelectedValue,
+                    Date = dateTimePickerFrom.Value,
+                    ExpirationDate = dateTimePickerTo.Value,
+                    Amount = Convert.ToInt32(textBoxAmount.Text),
+                    Status = 1,
+                    Type = (int)type
+                    // Сделать через справочник!!!
+                });
+                if (result.Succeeded)
+                {
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("При загрузке возникла ошибка: " + result.Errors);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Заполните все обязательные поля", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
-        private void LoadData()
+        private void buttonSave_Click(object sender, EventArgs e)
         {
-            //var result = _service.GetUser(new UserGetBindingModel { Id = _id.Value });
-            //if (!result.Succeeded)
-            //{
-            //    //Program.PrintErrorMessage("При загрузке возникла ошибка: ", result.Errors);
-            //    //Close();
-            //    throw new Exception("При загрузке возникла ошибка: " + result.Errors);
-            //}
-            //var entity = result.Result;
-
-            //textBoxLogin.Text = entity.Login;
-            //textBoxPassword.Text = entity.Password;
-            //comboBoxRole.SelectedIndex = entity.UserRole;
-            //textBoxFullName.Text = entity.FullName;
+            if (Save())
+            {
+                MessageBox.Show("Сохранение прошло успешно", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        //private bool CheckFill()
-        //{
-        //    if (string.IsNullOrEmpty(textBoxLogin.Text))
-        //    {
-        //        return false;
-        //    }
-        //    if (string.IsNullOrEmpty(textBoxPassword.Text))
-        //    {
-        //        return false;
-        //    }
-        //    if (comboBoxRole.SelectedValue == null)
-        //    {
-        //        return false;
-        //    }
-        //    if (string.IsNullOrEmpty(textBoxFullName.Text))
-        //    {
-        //        return false;
-        //    }
-        //    return true;
-        //}
+        private void buttonSaveAndClose_Click(object sender, EventArgs e)
+        {
+            if (Save())
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+        }
 
-        //private bool Save()
-        //{
-        //    if (CheckFill())
-        //    {
-        //        UserRoles role;
-        //        Enum.TryParse<UserRoles>(comboBoxRole.SelectedValue.ToString(), out role);
-        //        ResultService result;
-        //        if (!_id.HasValue)
-        //        {
-        //            result = _service.CreateUser(new UserSetBindingModel
-        //            {
-        //                //Id = Guid.NewGuid(),
-        //                Login = textBoxLogin.Text,
-        //                Password = textBoxPassword.Text,
-        //                UserRole = (int)role,
-        //                FullName = textBoxFullName.Text
-        //            });
-        //        }
-        //        else
-        //        {
-        //            result = _service.UpdateUser(new UserSetBindingModel
-        //            {
-        //                Id = _id.Value,
-        //                Login = textBoxLogin.Text,
-        //                Password = textBoxPassword.Text,
-        //                UserRole = (int)role,
-        //                FullName = textBoxFullName.Text
-        //            });
-        //        }
-        //        if (result.Succeeded)
-        //        {
-        //            if (result.Result != null)
-        //            {
-        //                if (result.Result is Guid)
-        //                {
-        //                    _id = (Guid)result.Result;
-        //                }
-        //            }
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            //Program.PrintErrorMessage("При сохранении возникла ошибка: ", result.Errors);
-        //            //return false;
-        //            throw new Exception("При загрузке возникла ошибка: " + result.Errors);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Заполните все обязательные поля", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        return false;
-        //    }
-        //}
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
     }
 }

@@ -1,0 +1,2 @@
+{
+    "Users": [{"FullName":"Vasya","Id":"00000000-0000-0000-0000-000000000000","IsActive":false,"Login":"agent","Password":"agent","UserRole":1},{"FullName":"Sofia","Id":"5df7b690-9be4-4568-9c8c-1dd317ac0852","IsActive":true,"Login":"user","Password":"user","UserRole":0},{"FullName":"Ksenya","Id":"cd79aec9-f562-4b8f-9e0d-69f8fbe1d809","IsActive":false,"Login":"admin","Password":"admin","UserRole":0},{"FullName":"Olga","Id":"5d3df8fa-6ee8-43ce-a9f3-efe38a6007ba","IsActive":false,"Login":"booker","Password":"booker","UserRole":2}]}

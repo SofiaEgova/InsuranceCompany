@@ -50,6 +50,7 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -111,6 +112,12 @@
     <Compile Include="Forms\Agent\ClientControl.Designer.cs">
       <DependentUpon>ClientControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Agent\ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Agent\ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Agent\ContractControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +129,12 @@
     </Compile>
     <Compile Include="Forms\Agent\ContractForm.Designer.cs">
       <DependentUpon>ContractForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Agent\DiagramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Agent\DiagramForm.Designer.cs">
+      <DependentUpon>DiagramForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AutorizationForm.cs">
       <SubType>Form</SubType>
@@ -182,6 +195,7 @@
     <Compile Include="Services\ContractService.cs" />
     <Compile Include="Services\DirectoryService.cs" />
     <Compile Include="Services\InsuranceCaseService.cs" />
+    <Compile Include="Services\Logger.cs" />
     <Compile Include="Services\SalaryService.cs" />
     <Compile Include="Services\SerializeService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -208,11 +222,17 @@
     <EmbeddedResource Include="Forms\Agent\ClientControl.resx">
       <DependentUpon>ClientControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Agent\ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Agent\ContractControl.resx">
       <DependentUpon>ContractControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Agent\ContractForm.resx">
       <DependentUpon>ContractForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Agent\DiagramForm.resx">
+      <DependentUpon>DiagramForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AutorizationForm.resx">
       <DependentUpon>AutorizationForm.cs</DependentUpon>

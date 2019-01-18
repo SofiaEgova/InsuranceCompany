@@ -2,6 +2,7 @@
 using InsuranceCompany.Forms.Admin;
 using InsuranceCompany.Forms.Agent;
 using InsuranceCompany.IServices;
+using InsuranceCompany.Services;
 using InsuranceCompany.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -29,11 +30,14 @@ namespace InsuranceCompany.Forms
 
         private UserViewModel user;
 
+        private Logger logger;
+
         public MainForm(IUserService service, ISerializeService serviceS)
         {
             InitializeComponent();
             _service = service;
             _serviceS = serviceS;
+            logger = new Logger();
 
             var result = _service.GetActiveUser();
             if (!result.Succeeded)
@@ -57,6 +61,8 @@ namespace InsuranceCompany.Forms
                     generateMenuBooker();
                     break;
             }
+
+            //Application.ApplicationExit += new EventHandler(OnApplicationExit);
         }
 
         #region Admin
@@ -89,6 +95,8 @@ namespace InsuranceCompany.Forms
                         StreamWriter writer = new StreamWriter(sfd.FileName);
                         writer.WriteLine(_serviceS.GetDataFromAdmin());
                         writer.Dispose();
+
+                        logger.Log("Архивирование данных администратором. Файл: " + Path.GetFileName(sfd.FileName));
 
                         MessageBox.Show("Данные сохранены успешно", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -151,6 +159,8 @@ namespace InsuranceCompany.Forms
                         writer.WriteLine(_serviceS.GetDataFromAgent());
                         writer.Dispose();
 
+                        logger.Log("Архивирование данных агентом. Файл: " + Path.GetFileName(sfd.FileName));
+
                         MessageBox.Show("Данные сохранены успешно", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -197,6 +207,8 @@ namespace InsuranceCompany.Forms
                         writer.WriteLine(_serviceS.GetDataFromBooker());
                         writer.Dispose();
 
+                        logger.Log("Архивирование данных бухгалтером. Файл: " + Path.GetFileName(sfd.FileName));
+
                         MessageBox.Show("Данные сохранены успешно", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -225,6 +237,11 @@ namespace InsuranceCompany.Forms
                 Controls.RemoveAt(Controls.Count - 1);
             }
             Controls.Add(control);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //_service.logOut();
         }
     }
 }

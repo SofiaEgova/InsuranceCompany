@@ -39,3 +39,5 @@ D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\
 D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Booker.AgentControl.resources
 D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.ContractControl.resources
 D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.ContractForm.resources
+d:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.ClientForm.resources
+d:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.DiagramForm.resources

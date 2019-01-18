@@ -1,5 +1,4 @@
 ﻿using InsuranceCompany.BindingModels;
-using InsuranceCompany.Enums;
 using InsuranceCompany.IServices;
 using System;
 using System.Collections.Generic;
@@ -13,18 +12,18 @@ using System.Windows.Forms;
 using Unity;
 using Unity.Attributes;
 
-namespace InsuranceCompany.Forms.Admin
+namespace InsuranceCompany.Forms.Agent
 {
-    public partial class UserForm : Form
+    public partial class ClientForm : Form
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
 
-        private readonly IUserService _service;
+        private readonly IClientService _service;
 
         private Guid? _id = null;
 
-        public UserForm(IUserService service, Guid? id = null)
+        public ClientForm(IClientService service, Guid? id = null)
         {
             InitializeComponent();
             _service = service;
@@ -32,54 +31,51 @@ namespace InsuranceCompany.Forms.Admin
             if (id != Guid.Empty)
             {
                 _id = id;
-            }
-        }
-
-        private void UserForm_Load(object sender, EventArgs e)
-        {
-            comboBoxRole.ValueMember = "Value";
-            comboBoxRole.DisplayMember = "Display";
-            comboBoxRole.DataSource = Enum.GetValues(typeof(UserRoles));
-            comboBoxRole.SelectedItem = null;
-
-            if (_id.HasValue)
-            {
                 LoadData();
             }
         }
 
         private void LoadData()
         {
-            var result = _service.GetUser(new UserGetBindingModel { Id = _id.Value });
+            var result = _service.GetClient(new ClientGetBindingModel { Id = _id.Value });
             if (!result.Succeeded)
             {
                 throw new Exception("При загрузке возникла ошибка: " + result.Errors);
             }
             var entity = result.Result;
 
-            textBoxLogin.Text = entity.Login;
-            textBoxPassword.Text = entity.Password;
-            comboBoxRole.SelectedIndex = entity.UserRole;
             textBoxFullName.Text = entity.FullName;
+            textBoxSeria.Text = entity.PassportSeria+"";
+            textBoxNumber.Text = entity.PassportNumber + "";
         }
 
         private bool CheckFill()
         {
-            if (string.IsNullOrEmpty(textBoxLogin.Text))
-            {
-                return false;
-            }
-            if (string.IsNullOrEmpty(textBoxPassword.Text))
-            {
-                return false;
-            }
-            if (comboBoxRole.SelectedValue == null)
-            {
-                return false;
-            }
             if (string.IsNullOrEmpty(textBoxFullName.Text))
             {
                 return false;
+            }
+            if (string.IsNullOrEmpty(textBoxSeria.Text))
+            {
+                try
+                {
+                    Convert.ToInt32(textBoxSeria.Text);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            if (string.IsNullOrEmpty(textBoxNumber.Text))
+            {
+                try
+                {
+                    Convert.ToInt32(textBoxNumber.Text);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
             return true;
         }
@@ -88,28 +84,24 @@ namespace InsuranceCompany.Forms.Admin
         {
             if (CheckFill())
             {
-                UserRoles role;
-                Enum.TryParse<UserRoles>(comboBoxRole.SelectedValue.ToString(), out role);
                 ResultService result;
                 if (!_id.HasValue)
                 {
-                    result = _service.CreateUser(new UserSetBindingModel
+                    result = _service.CreateClient(new ClientSetBindingModel
                     {
-                        Login = textBoxLogin.Text,
-                        Password = textBoxPassword.Text,
-                        UserRole = (int)role,
-                        FullName = textBoxFullName.Text
+                        FullName = textBoxFullName.Text,
+                        PassportSeria = Convert.ToInt32(textBoxSeria.Text),
+                        PassportNumber = Convert.ToInt32(textBoxNumber.Text)
                     });
                 }
                 else
                 {
-                    result = _service.UpdateUser(new UserSetBindingModel
+                    result = _service.UpdateClient(new ClientSetBindingModel
                     {
                         Id = _id.Value,
-                        Login = textBoxLogin.Text,
-                        Password = textBoxPassword.Text,
-                        UserRole = (int)role,
-                        FullName = textBoxFullName.Text
+                        FullName = textBoxFullName.Text,
+                        PassportSeria = Convert.ToInt32(textBoxSeria.Text),
+                        PassportNumber = Convert.ToInt32(textBoxNumber.Text)
                     });
                 }
                 if (result.Succeeded)

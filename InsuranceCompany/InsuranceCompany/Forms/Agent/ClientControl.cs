@@ -12,6 +12,7 @@ using Unity.Attributes;
 using InsuranceCompany.IServices;
 using InsuranceCompany.Models;
 using InsuranceCompany.BindingModels;
+using InsuranceCompany.ViewModels;
 
 namespace InsuranceCompany.Forms.Agent
 {
@@ -23,6 +24,10 @@ namespace InsuranceCompany.Forms.Agent
         private readonly IClientService _serviceClient;
 
         private readonly IContractService _serviceContract;
+
+        private bool filterSum;
+        private bool filterDate;
+        private bool filter;
 
         public ClientControl(IClientService serviceClient, IContractService serviceContract)
         {
@@ -38,7 +43,7 @@ namespace InsuranceCompany.Forms.Agent
                 new ColumnConfig { Name = "PassportNumber", Title = "Номер паспорта", Width = 200, Visible = true }
             };
 
-            List<string> hideToolStripButtons = new List<string> {"toolStripDropDownButtonMoves", "toolStripButtonAdd", "toolStripButtonUpd", "toolStripButtonDel" };
+            List<string> hideToolStripButtons = new List<string> {"toolStripDropDownButtonMoves", "toolStripButtonAdd", "toolStripButtonUpd", "toolStripButtonDel", "toolStripButtonRef"};
 
             standartControl1.Configurate(columns, hideToolStripButtons);
 
@@ -65,16 +70,39 @@ namespace InsuranceCompany.Forms.Agent
 
         public void LoadData()
         {
+            filterDate = false;
+            filterSum = false;
+            filter = false;
             standartControl1.LoadPage();
         }
 
         private int LoadRecords(int pageNumber, int pageSize)
         {
-            var result = _serviceClient.GetClients(new ClientGetBindingModel { PageNumber = pageNumber, PageSize = pageSize });
+            var result = new ResultService<ClientPageViewModel>();
+
+            if (filterSum)
+            {
+                //var resContracts = _serviceContract.GetContracts(new ContractGetBindingModel { PageNumber = pageNumber, PageSize = pageSize }).Result.List.Where(c => c.Amount >= 1000000);
+                //var resClients = _serviceClient.GetClients(new ClientGetBindingModel { PageNumber = pageNumber, PageSize = pageSize }).Result;
+                //foreach(var cl in resClients.List)
+                //{
+                //    foreach (var con in resContracts)
+                //    {
+                //        if (cl.Id == con.ClientId)
+                //    }
+                //}
+            }
+            else if (filterDate)
+            {
+
+            }
+            else if (filter)
+            {
+                //result = _serviceClient.GetClients(new ClientGetBindingModel{PageNumber = pageNumber, PageSize = pageSize }).Result.List.Where(c => c.PassportNumber == Convert.ToInt32(textBoxNumber.Text));
+            }
+            else result = _serviceClient.GetClients(new ClientGetBindingModel { PageNumber = pageNumber, PageSize = pageSize });
             if (!result.Succeeded)
             {
-                //Program.PrintErrorMessage("При загрузке возникла ошибка: ", result.Errors);
-                //return -1;
                 throw new Exception("При загрузке возникла ошибка: " + result.Errors);
             }
             standartControl1.GetDataGridViewRows.Clear();
@@ -88,6 +116,24 @@ namespace InsuranceCompany.Forms.Agent
                 );
             }
             return result.Result.MaxCount;
+        }
+
+        private void buttonFilterSum_Click(object sender, EventArgs e)
+        {
+            filterSum = true;
+            standartControl1.Refresh();
+        }
+
+        private void buttonFilterDate_Click(object sender, EventArgs e)
+        {
+            filterDate = true;
+            standartControl1.Refresh();
+        }
+
+        private void buttonFind_Click(object sender, EventArgs e)
+        {
+            filter = true;
+            standartControl1.Refresh();
         }
 
         //private void AddRecord()

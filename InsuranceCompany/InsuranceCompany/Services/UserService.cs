@@ -193,5 +193,29 @@ namespace InsuranceCompany.Services
                 return ResultService.Error(ex);
             }
         }
+
+        public ResultService logOut()
+        {
+            try
+            {
+                var entity = _context.Users
+                                .FirstOrDefault(c => c.IsActive == true);
+                if (entity == null)
+                {
+                    return ResultService.Error("Error:", "Entity not found");
+                }
+                UpdateUser(new UserSetBindingModel { FullName = entity.FullName, Id = entity.Id, Login = entity.Login, Password = entity.Password, UserRole = entity.UserRole, IsActive = false });
+
+                return ResultService.Success();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService.Error(ex);
+            }
+        }
     }
 }

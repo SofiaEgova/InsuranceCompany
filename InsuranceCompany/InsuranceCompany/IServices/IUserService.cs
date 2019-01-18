@@ -72,5 +72,12 @@ namespace InsuranceCompany.IServices
         /// <param name="model"></param>
         /// <returns></returns>
         ResultService GetActiveUser();
+
+        /// <summary>
+        /// Выход из системы
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        ResultService logOut();
     }
 }

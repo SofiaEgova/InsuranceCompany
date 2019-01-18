@@ -1,0 +1,3 @@
+{
+    "Contracts": [{"Amount":100,"ClientId":"7a5b3236-67d0-4e9c-bd96-5ba38e0b50ac","Date":"\/Date(1546286400000+0400)\/","DirectoryId":"d946ad35-78b2-4d60-9dab-93081dbbd429","ExpirationDate":"\/Date(1556654400000+0400)\/","Id":"d2388979-a8d7-4bd5-9773-cd9bbed230e1","Status":0,"Type":1,"UserId":"00000000-0000-0000-0000-000000000000"}],
+    "Clients": [{"FullName":"Alyona","Id":"7a5b3236-67d0-4e9c-bd96-5ba38e0b50ac","PassportNumber":888888,"PassportSeria":7318}]}

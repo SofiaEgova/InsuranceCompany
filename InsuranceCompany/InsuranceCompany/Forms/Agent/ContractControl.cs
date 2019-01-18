@@ -14,6 +14,7 @@ using InsuranceCompany.Models;
 using InsuranceCompany.BindingModels;
 using InsuranceCompany.ViewModels;
 using Unity.Resolution;
+using InsuranceCompany.Enums;
 
 namespace InsuranceCompany.Forms.Agent
 {
@@ -42,7 +43,7 @@ namespace InsuranceCompany.Forms.Agent
                 new ColumnConfig { Name = "Client", Title = "Клиент", Width = 200, Visible = true },
                 new ColumnConfig { Name = "Date", Title = "Дата заключения", Width = 150, Visible = true },
                 new ColumnConfig { Name = "ExpirationDate", Title = "Дата окончания", Width = 150, Visible = true },
-                new ColumnConfig { Name = "Type", Title = "Тип", Width = 100, Visible = true },
+                new ColumnConfig { Name = "Type", Title = "Тип", Width = 180, Visible = true },
                 new ColumnConfig { Name = "Amount", Title = "Сумма", Width = 100, Visible = true },
                 new ColumnConfig { Name = "Status", Title = "Статус", Width = 100, Visible = true }
             };
@@ -87,17 +88,17 @@ namespace InsuranceCompany.Forms.Agent
             standartControl1.GetDataGridViewRows.Clear();
             foreach (var res in result.Result.List)
             {
-                var resUser = (UserViewModel)_serviceUser.GetUsers(new UserGetBindingModel { }).Result.List.FirstOrDefault(u => u.Id == res.UserId);
-                var resClient = (ClientViewModel)_serviceClient.GetClients(new ClientGetBindingModel { }).Result.List.FirstOrDefault(c => c.Id == res.ClientId);
+                var resUser = _serviceUser.GetUsers(new UserGetBindingModel { }).Result.List.FirstOrDefault(u => u.Id == res.UserId);
+                var resClient = _serviceClient.GetClients(new ClientGetBindingModel { }).Result.List.FirstOrDefault(c => c.Id == res.ClientId);
                 standartControl1.GetDataGridViewRows.Add(
                     res.Id,
                     resUser.FullName,
                     resClient.FullName,
                     res.Date,
                     res.ExpirationDate,
-                    res.Type,
+                    (ContractTypes)res.Type,
                     res.Amount,
-                    res.Status
+                    (ContractStatus)res.Status
                 );
             }
             return result.Result.MaxCount;
@@ -153,6 +154,12 @@ namespace InsuranceCompany.Forms.Agent
                     standartControl1.LoadPage();
                 }
             }
+        }
+
+        private void buttonDiagram_Click(object sender, EventArgs e)
+        {
+            Form form = Container.Resolve<DiagramForm>();
+            form.Show();
         }
     }
 }
