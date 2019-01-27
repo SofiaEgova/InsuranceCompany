@@ -42,6 +42,10 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -136,6 +140,24 @@
     <Compile Include="Forms\Agent\DiagramForm.Designer.cs">
       <DependentUpon>DiagramForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Agent\OrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Agent\OrderControl.Designer.cs">
+      <DependentUpon>OrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Agent\СalculateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Agent\СalculateControl.Designer.cs">
+      <DependentUpon>СalculateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Agent\СrossCalculateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Agent\СrossCalculateControl.Designer.cs">
+      <DependentUpon>СrossCalculateControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AutorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +196,10 @@
     <Compile Include="Migrations\201901082151435_addToUser.cs" />
     <Compile Include="Migrations\201901082151435_addToUser.Designer.cs">
       <DependentUpon>201901082151435_addToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901202119400_directory.cs" />
+    <Compile Include="Migrations\201901202119400_directory.Designer.cs">
+      <DependentUpon>201901202119400_directory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelFacotryFromBindingModel.cs" />
@@ -234,6 +260,15 @@
     <EmbeddedResource Include="Forms\Agent\DiagramForm.resx">
       <DependentUpon>DiagramForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Agent\OrderControl.resx">
+      <DependentUpon>OrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Agent\СalculateControl.resx">
+      <DependentUpon>СalculateControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Agent\СrossCalculateControl.resx">
+      <DependentUpon>СrossCalculateControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AutorizationForm.resx">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,6 +287,9 @@
     <EmbeddedResource Include="Migrations\201901082151435_addToUser.resx">
       <DependentUpon>201901082151435_addToUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901202119400_directory.resx">
+      <DependentUpon>201901202119400_directory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -265,6 +303,7 @@
     <EmbeddedResource Include="Forms\StandartControl.resx">
       <DependentUpon>StandartControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

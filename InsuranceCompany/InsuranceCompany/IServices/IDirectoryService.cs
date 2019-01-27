@@ -29,6 +29,13 @@ namespace InsuranceCompany.IServices
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
+        ResultService<DirectoryViewModel> GetDirectory(int type, int term);
+
+        /// <summary>
+        /// Получение расчета
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         ResultService<DirectoryViewModel> GetDirectory(DirectoryGetBindingModel model);
 
         /// <summary>

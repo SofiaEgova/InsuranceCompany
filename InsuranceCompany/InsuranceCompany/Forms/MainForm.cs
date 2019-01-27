@@ -61,8 +61,6 @@ namespace InsuranceCompany.Forms
                     generateMenuBooker();
                     break;
             }
-
-            //Application.ApplicationExit += new EventHandler(OnApplicationExit);
         }
 
         #region Admin
@@ -96,7 +94,7 @@ namespace InsuranceCompany.Forms
                         writer.WriteLine(_serviceS.GetDataFromAdmin());
                         writer.Dispose();
 
-                        logger.Log("Архивирование данных администратором. Файл: " + Path.GetFileName(sfd.FileName));
+                        logger.Log("Архивирование данных администратором. Пользователь:"+user.FullName+ "Файл: " + Path.GetFileName(sfd.FileName));
 
                         MessageBox.Show("Данные сохранены успешно", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -117,14 +115,21 @@ namespace InsuranceCompany.Forms
             menuStrip.Items.Add(clientsItem);
             ToolStripMenuItem contractsItem = new ToolStripMenuItem("Договоры");
             menuStrip.Items.Add(contractsItem);
-            ToolStripMenuItem printItem = new ToolStripMenuItem("Печать");
-            menuStrip.Items.Add(printItem);
             ToolStripMenuItem archiveAgentItem = new ToolStripMenuItem("Архивировать данные");
             menuStrip.Items.Add(archiveAgentItem);
             clientsItem.Click += clientsItemToolStripMenuItem_Click;
             contractsItem.Click += contractsItemToolStripMenuItem_Click;
-            printItem.Click += printItemToolStripMenuItem_Click;
             archiveAgentItem.Click += archiveAgentItemToolStripMenuItem_Click;
+            
+            ToolStripMenuItem calculateItem = new ToolStripMenuItem("Расчет суммарной стоимости договоров");
+            menuStrip.Items.Add(calculateItem);
+            ToolStripMenuItem crossCalculateItem = new ToolStripMenuItem("Стоимость договоров");
+            ToolStripMenuItem orderItem = new ToolStripMenuItem("Отчет о работе");
+            menuStrip.Items.Add(crossCalculateItem);
+            menuStrip.Items.Add(orderItem);
+            calculateItem.Click += calculateItemToolStripMenuItem_Click;
+            crossCalculateItem.Click += crossCalculateItemToolStripMenuItem_Click;
+            orderItem.Click += orderItemToolStripMenuItem_Click;
         }
 
         private void clientsItemToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,9 +146,9 @@ namespace InsuranceCompany.Forms
             control.LoadData();
         }
 
-        private void printItemToolStripMenuItem_Click(object sender, EventArgs e)
+        private void orderItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void archiveAgentItemToolStripMenuItem_Click(object sender, EventArgs e)
@@ -159,7 +164,7 @@ namespace InsuranceCompany.Forms
                         writer.WriteLine(_serviceS.GetDataFromAgent());
                         writer.Dispose();
 
-                        logger.Log("Архивирование данных агентом. Файл: " + Path.GetFileName(sfd.FileName));
+                        logger.Log("Архивирование данных агентом. Пользователь:" + user.FullName + "Файл: " + Path.GetFileName(sfd.FileName));
 
                         MessageBox.Show("Данные сохранены успешно", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -169,6 +174,18 @@ namespace InsuranceCompany.Forms
                     }
                 }
             }
+        }
+
+        private void calculateItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var control = Container.Resolve<СalculateControl>();
+            ApplyControl(control);
+        }
+
+        private void crossCalculateItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var control = Container.Resolve<СrossCalculateControl>();
+            ApplyControl(control);
         }
         #endregion
 
@@ -241,7 +258,7 @@ namespace InsuranceCompany.Forms
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //_service.logOut();
+            _service.logOut();
         }
     }
 }

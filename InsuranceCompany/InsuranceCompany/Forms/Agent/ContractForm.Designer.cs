@@ -38,10 +38,13 @@
             this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxClients = new System.Windows.Forms.ComboBox();
             this.buttonAddClient = new System.Windows.Forms.Button();
+            this.buttonUpdateContract = new System.Windows.Forms.Button();
+            this.buttonAddInsuranceCase = new System.Windows.Forms.Button();
+            this.buttonSum = new System.Windows.Forms.Button();
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -80,7 +83,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 60);
+            this.label1.Location = new System.Drawing.Point(12, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 17);
             this.label1.TabIndex = 17;
@@ -89,14 +92,14 @@
             // comboBoxType
             // 
             this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(213, 137);
+            this.comboBoxType.Location = new System.Drawing.Point(175, 137);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(200, 24);
             this.comboBoxType.TabIndex = 18;
             // 
             // textBoxAmount
             // 
-            this.textBoxAmount.Location = new System.Drawing.Point(213, 180);
+            this.textBoxAmount.Location = new System.Drawing.Point(175, 175);
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.Size = new System.Drawing.Size(200, 22);
             this.textBoxAmount.TabIndex = 19;
@@ -104,7 +107,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 94);
+            this.label2.Location = new System.Drawing.Point(12, 99);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 17);
             this.label2.TabIndex = 20;
@@ -112,14 +115,14 @@
             // 
             // dateTimePickerFrom
             // 
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(213, 60);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(175, 60);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerFrom.TabIndex = 21;
             // 
             // dateTimePickerTo
             // 
-            this.dateTimePickerTo.Location = new System.Drawing.Point(213, 94);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(175, 94);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
             this.dateTimePickerTo.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerTo.TabIndex = 22;
@@ -127,20 +130,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 141);
+            this.label3.Location = new System.Drawing.Point(12, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 17);
             this.label3.TabIndex = 23;
             this.label3.Text = "Тип страхования:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(143, 183);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 17);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Сумма:";
             // 
             // label5
             // 
@@ -161,7 +155,7 @@
             // 
             // buttonAddClient
             // 
-            this.buttonAddClient.Location = new System.Drawing.Point(419, 22);
+            this.buttonAddClient.Location = new System.Drawing.Point(428, 22);
             this.buttonAddClient.Name = "buttonAddClient";
             this.buttonAddClient.Size = new System.Drawing.Size(196, 23);
             this.buttonAddClient.TabIndex = 27;
@@ -169,15 +163,59 @@
             this.buttonAddClient.UseVisualStyleBackColor = true;
             this.buttonAddClient.Click += new System.EventHandler(this.buttonAddClient_Click);
             // 
+            // buttonUpdateContract
+            // 
+            this.buttonUpdateContract.Location = new System.Drawing.Point(428, 60);
+            this.buttonUpdateContract.Name = "buttonUpdateContract";
+            this.buttonUpdateContract.Size = new System.Drawing.Size(196, 25);
+            this.buttonUpdateContract.TabIndex = 28;
+            this.buttonUpdateContract.Text = "Переоформить";
+            this.buttonUpdateContract.UseVisualStyleBackColor = true;
+            this.buttonUpdateContract.Click += new System.EventHandler(this.buttonUpdateContract_Click);
+            // 
+            // buttonAddInsuranceCase
+            // 
+            this.buttonAddInsuranceCase.Location = new System.Drawing.Point(408, 99);
+            this.buttonAddInsuranceCase.Name = "buttonAddInsuranceCase";
+            this.buttonAddInsuranceCase.Size = new System.Drawing.Size(216, 28);
+            this.buttonAddInsuranceCase.TabIndex = 29;
+            this.buttonAddInsuranceCase.Text = "Наступил страховой случай";
+            this.buttonAddInsuranceCase.UseVisualStyleBackColor = true;
+            this.buttonAddInsuranceCase.Click += new System.EventHandler(this.buttonAddInsuranceCase_Click);
+            // 
+            // buttonSum
+            // 
+            this.buttonSum.Location = new System.Drawing.Point(12, 172);
+            this.buttonSum.Name = "buttonSum";
+            this.buttonSum.Size = new System.Drawing.Size(157, 28);
+            this.buttonSum.TabIndex = 30;
+            this.buttonSum.Text = "Сумма взноса:";
+            this.buttonSum.UseVisualStyleBackColor = true;
+            this.buttonSum.Click += new System.EventHandler(this.buttonSum_Click);
+            // 
+            // buttonPrint
+            // 
+            this.buttonPrint.Location = new System.Drawing.Point(524, 146);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(100, 28);
+            this.buttonPrint.TabIndex = 31;
+            this.buttonPrint.Text = "Печать";
+            this.buttonPrint.UseVisualStyleBackColor = true;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
+            // 
             // ContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 264);
+            this.Controls.Add(this.buttonPrint);
+            this.Controls.Add(this.buttonSum);
+            this.Controls.Add(this.buttonAddInsuranceCase);
+            this.Controls.Add(this.buttonUpdateContract);
             this.Controls.Add(this.buttonAddClient);
             this.Controls.Add(this.comboBoxClients);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dateTimePickerTo);
             this.Controls.Add(this.dateTimePickerFrom);
@@ -208,9 +246,12 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
         private System.Windows.Forms.DateTimePicker dateTimePickerTo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxClients;
         private System.Windows.Forms.Button buttonAddClient;
+        private System.Windows.Forms.Button buttonUpdateContract;
+        private System.Windows.Forms.Button buttonAddInsuranceCase;
+        private System.Windows.Forms.Button buttonSum;
+        private System.Windows.Forms.Button buttonPrint;
     }
 }

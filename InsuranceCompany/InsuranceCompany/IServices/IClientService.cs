@@ -51,5 +51,26 @@ namespace InsuranceCompany.IServices
         /// <param name="model"></param>
         /// <returns></returns>
         ResultService DeleteClient(ClientGetBindingModel model);
+
+        /// <summary>
+        /// Выборка по сумме
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        ResultService<ClientPageViewModel> GetClientsBySum(ClientGetBindingModel model);
+
+        /// <summary>
+        /// Выборка по дате
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        ResultService<ClientPageViewModel> GetClientsByDate(ClientGetBindingModel model);
+
+        /// <summary>
+        /// Выборка по номеру
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        ResultService<ClientPageViewModel> GetClientsByNumber(ClientGetBindingModel model, int number);
     }
 }

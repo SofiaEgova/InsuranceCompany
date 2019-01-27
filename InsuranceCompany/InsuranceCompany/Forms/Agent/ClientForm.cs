@@ -57,25 +57,20 @@ namespace InsuranceCompany.Forms.Agent
             }
             if (string.IsNullOrEmpty(textBoxSeria.Text))
             {
-                try
-                {
-                    Convert.ToInt32(textBoxSeria.Text);
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+                return false;
+            }
+            try
+            {
+                Convert.ToInt32(textBoxSeria.Text);
+                Convert.ToInt32(textBoxNumber.Text);
+            }
+            catch (Exception)
+            {
+                return false;
             }
             if (string.IsNullOrEmpty(textBoxNumber.Text))
             {
-                try
-                {
-                    Convert.ToInt32(textBoxNumber.Text);
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+                return false;
             }
             return true;
         }
@@ -122,7 +117,7 @@ namespace InsuranceCompany.Forms.Agent
             }
             else
             {
-                MessageBox.Show("Заполните все обязательные поля", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните все обязательные поля корректными данными", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

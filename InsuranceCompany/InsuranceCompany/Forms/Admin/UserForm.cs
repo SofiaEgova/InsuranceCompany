@@ -130,7 +130,7 @@ namespace InsuranceCompany.Forms.Admin
             }
             else
             {
-                MessageBox.Show("Заполните все обязательные поля", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните все обязательные поля корректными данными", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

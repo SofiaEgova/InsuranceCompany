@@ -32,31 +32,45 @@ namespace InsuranceCompany.Forms
         {
             _service = service;
             InitializeComponent();
+            textBoxPassword.PasswordChar = '*';
         }
 
         private bool CheckFields()
         {
+            if (textBoxLogin.TextLength > 10) return false;
+            if (textBoxPassword.TextLength > 10) return false;
             return true;
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            login = textBoxLogin.Text;
-            password = textBoxPassword.Text;
-
-            user = AutorizationService.Login(login, password);
-            _service.UpdateUser(new UserSetBindingModel
+            if (CheckFields())
             {
-                Id = user.Id,
-                FullName = user.FullName,
-                IsActive = user.IsActive,
-                Login = user.Login,
-                Password = user.Password,
-                UserRole = user.UserRole
-            });
-            Form form = Container.Resolve<MainForm>();
-            form.Show();
-            this.Hide();
+                login = textBoxLogin.Text;
+                password = textBoxPassword.Text;
+
+                user = AutorizationService.Login(login, password);
+                try
+                {
+                    _service.UpdateUser(new UserSetBindingModel
+                    {
+                        Id = user.Id,
+                        FullName = user.FullName,
+                        IsActive = user.IsActive,
+                        Login = user.Login,
+                        Password = user.Password,
+                        UserRole = user.UserRole
+                    });
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Данные не верны", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                Form form = Container.Resolve<MainForm>();
+                form.Show();
+                this.Hide();
+            }
         }
     }
 }

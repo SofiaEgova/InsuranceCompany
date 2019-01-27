@@ -41,3 +41,6 @@ D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\
 D:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.ContractForm.resources
 d:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.ClientForm.resources
 d:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.DiagramForm.resources
+d:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Migrations.directory.resources
+d:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.СalculateControl.resources
+d:\Repositories\VS\InsuranceCompany\InsuranceCompany\InsuranceCompany\obj\Debug\InsuranceCompany.Forms.Agent.СrossCalculateControl.resources

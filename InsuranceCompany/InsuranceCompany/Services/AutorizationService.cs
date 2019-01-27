@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace InsuranceCompany.Services
 {
@@ -25,7 +26,8 @@ namespace InsuranceCompany.Services
             var user = _context.Users.FirstOrDefault(u => u.Login == login && u.Password == password);
             if (user == null)
             {
-                throw new Exception("Введен неверный логин/пароль");
+                MessageBox.Show("Данные не верны", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
             _user = ModelFactoryToViewModel.CreateUserViewModel(user);
             _user.IsActive = true;

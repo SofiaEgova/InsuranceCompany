@@ -9,7 +9,8 @@ namespace InsuranceCompany.Enums
     public enum ContractStatus
     {
         Действует = 1,
-        Закрыт = 0,
-        Перезаключен = 2
+        Закончился_срок = 0,
+        Перезаключен = 2,
+        Наступил_страховой_случай = 3
     }
 }

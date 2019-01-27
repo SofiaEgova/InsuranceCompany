@@ -13,6 +13,7 @@ namespace InsuranceCompany.BindingModels
         public Guid? UserId { get; set; }
         public Guid? ClientId { get; set; }
         public Guid? DirectoryId { get; set; }
+        public int? Type { get; set; }
     }
 
     public class ContractSetBindingModel

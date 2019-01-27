@@ -36,15 +36,17 @@ namespace InsuranceCompany.Services
 
         public string GetDataFromAgent()
         {
+            var user = _context.Users.FirstOrDefault(u => u.IsActive == true);
             DataContractJsonSerializer contractJS = new DataContractJsonSerializer(typeof(List<Contract>));
             MemoryStream msContract = new MemoryStream();
-            var resultContract = _context.Contracts.Where(c => c.Status != 1);
+            var resultContract = _context.Contracts.Where(c => c.Status != 1&&c.UserId==user.Id);
             contractJS.WriteObject(msContract, resultContract.ToList());
             msContract.Position = 0;
             StreamReader srContract = new StreamReader(msContract);
             string contractsJSON = srContract.ReadToEnd();
             srContract.Close();
             msContract.Close();
+            _context.Contracts.RemoveRange(resultContract);
 
             List<Client> resultClient = new List<Client>(); ;
             foreach(var c in resultContract)
@@ -59,6 +61,9 @@ namespace InsuranceCompany.Services
             string clientsJSON = srClient.ReadToEnd();
             srClient.Close();
             msClient.Close();
+            
+            _context.Clients.RemoveRange(resultClient);
+            _context.SaveChanges();
 
             return
                 "{\n" + "    \"Contracts\": " + contractsJSON + ",\n" +

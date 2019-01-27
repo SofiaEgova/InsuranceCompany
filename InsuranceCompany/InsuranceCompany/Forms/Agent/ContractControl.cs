@@ -35,6 +35,7 @@ namespace InsuranceCompany.Forms.Agent
             _serviceContract = serviceContract;
             _serviceUser = serviceUser;
             _serviceClient = serviceClient;
+            _serviceContract.CloseContracts();
 
             List<ColumnConfig> columns = new List<ColumnConfig>
             {
@@ -48,14 +49,13 @@ namespace InsuranceCompany.Forms.Agent
                 new ColumnConfig { Name = "Status", Title = "Статус", Width = 100, Visible = true }
             };
 
-            List<string> hideToolStripButtons = new List<string> { "toolStripDropDownButtonMoves" };
+            List<string> hideToolStripButtons = new List<string> { "toolStripDropDownButtonMoves", "toolStripButtonDel" };
 
             standartControl1.Configurate(columns, hideToolStripButtons);
 
             standartControl1.GetPageAddEvent(LoadRecords);
             standartControl1.ToolStripButtonAddEventClickAddEvent((object sender, EventArgs e) => { AddRecord(); });
             standartControl1.ToolStripButtonUpdEventClickAddEvent((object sender, EventArgs e) => { UpdRecord(); });
-            standartControl1.ToolStripButtonDelEventClickAddEvent((object sender, EventArgs e) => { DelRecord(); });
             standartControl1.DataGridViewListEventCellDoubleClickAddEvent((object sender, DataGridViewCellEventArgs e) => { UpdRecord(); });
             standartControl1.DataGridViewListEventKeyDownAddEvent((object sender, KeyEventArgs e) => {
                 switch (e.KeyCode)
@@ -65,9 +65,6 @@ namespace InsuranceCompany.Forms.Agent
                         break;
                     case Keys.Enter:
                         UpdRecord();
-                        break;
-                    case Keys.Delete:
-                        DelRecord();
                         break;
                 }
             });
@@ -109,7 +106,8 @@ namespace InsuranceCompany.Forms.Agent
             var form = Container.Resolve<ContractForm>(
                 new ParameterOverrides
                 {
-                    { "id", Guid.Empty }
+                    { "id", Guid.Empty },
+                    { "oldId", Guid.Empty }
                 }
                 .OnType<ContractForm>());
             if (form.ShowDialog() == DialogResult.OK)
@@ -122,35 +120,27 @@ namespace InsuranceCompany.Forms.Agent
         {
             if (standartControl1.GetDataGridViewSelectedRows.Count == 1)
             {
+                var status = (int)(ContractStatus)standartControl1.GetDataGridViewSelectedRows[0].Cells[7].Value;
+                if (status==2)
+                {
+                    MessageBox.Show("Вы не можете изменить данные по этому договору", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (status == 3)
+                {
+                    MessageBox.Show("Вы не можете изменить данные по этому договору", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 Guid id = new Guid(standartControl1.GetDataGridViewSelectedRows[0].Cells[0].Value.ToString());
                 var form = Container.Resolve<ContractForm>(
                     new ParameterOverrides
                     {
-                        { "id", id }
+                        { "id", id },
+                        { "oldId", Guid.Empty }
                     }
                     .OnType<ContractForm>());
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    standartControl1.LoadPage();
-                }
-            }
-        }
-
-        private void DelRecord()
-        {
-            if (standartControl1.GetDataGridViewSelectedRows.Count > 0)
-            {
-                if (MessageBox.Show("Вы уверены, что хотите удалить?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    for (int i = 0; i < standartControl1.GetDataGridViewSelectedRows.Count; ++i)
-                    {
-                        Guid id = new Guid(standartControl1.GetDataGridViewSelectedRows[i].Cells[0].Value.ToString());
-                        var result = _serviceContract.DeleteContract(new ContractGetBindingModel { Id = id });
-                        if (!result.Succeeded)
-                        {
-                            throw new Exception("При загрузке возникла ошибка: " + result.Errors);
-                        }
-                    }
                     standartControl1.LoadPage();
                 }
             }

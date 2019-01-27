@@ -51,5 +51,12 @@ namespace InsuranceCompany.IServices
         /// <param name="model"></param>
         /// <returns></returns>
         ResultService DeleteContract(ContractGetBindingModel model);
+
+        /// <summary>
+        /// Закрытие котрактов
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        ResultService CloseContracts();
     }
 }

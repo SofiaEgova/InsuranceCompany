@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="InsuranceCompany.BindingModels.ClientGetBindingModel" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\ClientBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.ClientSetBindingModel" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAAAAAAAAAQAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>BindingModels\ClientBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.ComissionGetBindingModel" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\ComissionBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.ComissionSetBindingModel" Collapsed="true">
+    <Position X="27" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAiAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\ComissionBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.ContractGetBindingModel" Collapsed="true">
+    <Position X="9.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAgAAAAAgAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\ContractBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.ContractSetBindingModel" Collapsed="true">
+    <Position X="25.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAACAgAAAAAiAQAAAAAABAQAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\ContractBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.DirectoryGetBindingModel" Collapsed="true">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\DirectoryBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.DirectorySetBindingModel" Collapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\DirectoryBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.InsuranceCaseGetBindingModel" Collapsed="true">
+    <Position X="14" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\InsuranceCaseBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.InsuranceCaseSetBindingModel" Collapsed="true">
+    <Position X="16.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAACAAAAAAAIBAAAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\InsuranceCaseBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.PageSettingBinidingModel" Collapsed="true">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>BindingModels\PageSettingBinidingModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.SalaryGetBindingModel" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\SalaryBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.SalarySetBindingModel" Collapsed="true">
+    <Position X="25.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAiAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\SalaryBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.UserGetBindingModel" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BindingModels\UserBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.BindingModels.UserSetBindingModel" Collapsed="true">
+    <Position X="27" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAEAAAAAAAAAAAAAgCAAAQAAAAAAA=</HashCode>
+      <FileName>BindingModels\UserBindingModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.Admin.UserForm" Collapsed="true">
+    <Position X="21.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAQIRAgCAQABAQAADAAAACAAKIgAAAIQAAAAABAAA=</HashCode>
+      <FileName>Forms\Admin\UserForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.Admin.UsersControl" Collapsed="true">
+    <Position X="23.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIQAgCAUAAAUAACCAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\Admin\UsersControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.Agent.ClientControl" Collapsed="true">
+    <Position X="27" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAQEACAUARAEAACAEAYCAUBAAACAAAAAAAAAAQA=</HashCode>
+      <FileName>Forms\Agent\ClientControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.Agent.ClientForm" Collapsed="true">
+    <Position X="28.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQIQAgCAQARAQAADAAAACAACIgAAAoAAAAAABAAA=</HashCode>
+      <FileName>Forms\Agent\ClientForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.Agent.ContractControl" Collapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAIQAgCAUgBAEAACAAAACAAAAAACAAAEAAAAAAAA=</HashCode>
+      <FileName>Forms\Agent\ContractControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.Agent.ContractForm" Collapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgwJQABqBQQBgAAADAAAECACCIgACAICEQAAAlAAA=</HashCode>
+      <FileName>Forms\Agent\ContractForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.Agent.DiagramForm" Collapsed="true">
+    <Position X="28.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAASAACAAAAAQAACBAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\Agent\DiagramForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.Agent.СalculateControl" Collapsed="true">
+    <Position X="16.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAwBBCAAAFIAAACAAAACACAAAAAgAAAAAAAEQAA=</HashCode>
+      <FileName>Forms\Agent\СalculateControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.Agent.СrossCalculateControl" Collapsed="true">
+    <Position X="18.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAAFAAAACAAAACACAAAAAAAAAAAAAEQAA=</HashCode>
+      <FileName>Forms\Agent\СrossCalculateControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.AutorizationForm" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAQQACCAAABAQABCAAAACAAAAAAAAAQAAAgAAEQA=</HashCode>
+      <FileName>Forms\AutorizationForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.MainForm" Collapsed="true">
+    <Position X="23.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIABAESCACAIAgASAACAQAAKYAgAAAQAgAAAAAEAASQ=</HashCode>
+      <FileName>Forms\MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.StandartControl" Collapsed="true">
+    <Position X="18.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQQAZG0AAKAAAABAAUDAACADABCAKgIBUEhAEAgAAAA=</HashCode>
+      <FileName>Forms\StandartControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Forms.Booker.AgentControl" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAAAAUAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\Booker\AgentControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.InsuranceCompanyDbContext" Collapsed="true">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAACAAAACAAAAAAAAAAAAAAAAAIAIAAECA=</HashCode>
+      <FileName>InsuranceCompanyDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ModelFacotryFromBindingModel" Collapsed="true">
+    <Position X="25.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAIAAQAAAAAABAAAAAIAAAABAAAQA=</HashCode>
+      <FileName>ModelFacotryFromBindingModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ModelFactoryToViewModel" Collapsed="true">
+    <Position X="27" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAQAAEAAACAAAAAABAgAAAAAAACAAAA=</HashCode>
+      <FileName>ModelFactoryToViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Program" Collapsed="true">
+    <Position X="28.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ResultService" Collapsed="true">
+    <Position X="18.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAQAAgAAAAAAAAAAAAAgAIA=</HashCode>
+      <FileName>ResultService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ResultService&lt;T&gt;" Collapsed="true">
+    <Position X="20" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAQAAgAAAAAAAAAAAAAgAII=</HashCode>
+      <FileName>ResultService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Migrations.first" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201901081410220_first.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Migrations.addToDirectory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201901081807443_addToDirectory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Migrations.addToUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201901082151435_addToUser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Migrations.directory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201901202119400_directory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Migrations.Configuration" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Models.Client" Collapsed="true">
+    <Position X="25.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAAAAAAAAAQAAAAAAAAAAIAAAAAIA=</HashCode>
+      <FileName>Models\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Models.ColumnConfig" Collapsed="true">
+    <Position X="21.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAEQAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ColumnConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Models.Comission" Collapsed="true">
+    <Position X="23.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAAAAAAAAAAiAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Comission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Models.Contract" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADABAEAAAAAACAgAAAAAiAQAAAAAABAQAAAIAAAAQ=</HashCode>
+      <FileName>Models\Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Models.Directory" Collapsed="true">
+    <Position X="18.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAAAAAAAAAAAAAgAAACAAAAABAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\Directory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Models.InsuranceCase" Collapsed="true">
+    <Position X="27" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAACAAAAAAAIBAAAIAAAAAAA=</HashCode>
+      <FileName>Models\InsuranceCase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Models.Salary" Collapsed="true">
+    <Position X="21.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAAAAAAAAAAiAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Salary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Models.User" Collapsed="true">
+    <Position X="20" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAACIAAEAAAAAAAAAAAAAgCAAAYAAAAACA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Properties.Resources" Collapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAIAAAAAAgCAAAABEAAAAQAAAAAACACAAABgAII=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Properties.Settings" Collapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Services.AutorizationService" Collapsed="true">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAgAAAAIAAAAEQAAAAAAA=</HashCode>
+      <FileName>Services\AutorizationService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Services.ClientService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABDAAAAAAAAAAAABAAAAAAAABgAhACAw=</HashCode>
+      <FileName>Services\ClientService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Services.ComissionService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAABAAAAAAQAAAAAAAAhAAAABAAAAAAAAA=</HashCode>
+      <FileName>Services\ComissionService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Services.ContractService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAIAAABABAAAIAAAAAAAAAAAAAAAAAAAAAgQgAA=</HashCode>
+      <FileName>Services\ContractService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Services.DirectoryService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAABBAAAAAAAAAAAAQAAAAAEAAAEAgAAQA=</HashCode>
+      <FileName>Services\DirectoryService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Services.InsuranceCaseService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAABAAAAQAAAAAAAAAAAAAAAAAAABAAgEA=</HashCode>
+      <FileName>Services\InsuranceCaseService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Services.Logger" Collapsed="true">
+    <Position X="21.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAACAgAAAAAAAAAAhAAAAA=</HashCode>
+      <FileName>Services\Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.Services.SalaryService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAIABAAAAAAiAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Services\SalaryService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Services.SerializeService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAACAAAAAABAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SerializeService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.Services.UserService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAABBAFAAAgAAAAAQAAgACAEgAgAAgAAAA=</HashCode>
+      <FileName>Services\UserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.ClientPageViewModel" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ClientViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.ClientViewModel" Collapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAAAAAAAAAQAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>ViewModels\ClientViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.ComissionPageViewModel" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ComissionViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.ComissionViewModel" Collapsed="true">
+    <Position X="28.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAiAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ComissionViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.ContractPageViewModel" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ContractViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.ContractViewModel" Collapsed="true">
+    <Position X="27" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAACAgAAAAAiAQAAAAAABAQAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ContractViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.DirectoryPageViewModel" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\DirectoryViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.DirectoryViewModel" Collapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\DirectoryViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.InsuranceCasePageViewModel" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\InsuranceCaseViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.InsuranceCaseViewModel" Collapsed="true">
+    <Position X="18.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAACAAAAAAAIBAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\InsuranceCaseViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.PageViewModel&lt;T&gt;" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>ViewModels\PageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.SalaryPageViewModel" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\SalaryViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.SalaryViewModel" Collapsed="true">
+    <Position X="27" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAiAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\SalaryViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.UserPageViewModel" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\UserViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsuranceCompany.ViewModels.UserViewModel" Collapsed="true">
+    <Position X="28.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAEAAAAAAAAAAAAAgCAAAQAAAAAAA=</HashCode>
+      <FileName>ViewModels\UserViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="InsuranceCompany.IServices.IClientService" Collapsed="true">
+    <Position X="16.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAABAAAAAAAABgAhACAw=</HashCode>
+      <FileName>IServices\IClientService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InsuranceCompany.IServices.IComissionService" Collapsed="true">
+    <Position X="18.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAQAAAAAAAAhAAAABAAAAAAAAA=</HashCode>
+      <FileName>IServices\IComissionService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InsuranceCompany.IServices.IContractService" Collapsed="true">
+    <Position X="20" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAIAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAgQgAA=</HashCode>
+      <FileName>IServices\IContractService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InsuranceCompany.IServices.IDirectoryService" Collapsed="true">
+    <Position X="21.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAQAAAAAEAAAEAgAAQA=</HashCode>
+      <FileName>IServices\IDirectoryService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InsuranceCompany.IServices.IInsuranceCaseService" Collapsed="true">
+    <Position X="23.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAAAAAABAAgEA=</HashCode>
+      <FileName>IServices\IInsuranceCaseService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InsuranceCompany.IServices.ISalaryService" Collapsed="true">
+    <Position X="25.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAIAAAAAAAAiAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>IServices\ISalaryService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InsuranceCompany.IServices.ISerializeService" Collapsed="true">
+    <Position X="27" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IServices\ISerializeService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="InsuranceCompany.IServices.IUserService" Collapsed="true">
+    <Position X="28.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAQAAAAAEAAAgAAAAAQAAgAAAEgAgAAgAAAA=</HashCode>
+      <FileName>IServices\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="InsuranceCompany.Enums.ContractStatus" Collapsed="true">
+    <Position X="16.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAACAAAAAAAAAAAAAAAAAAAAQAAAAAAIA=</HashCode>
+      <FileName>Enums\ContractStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="InsuranceCompany.Enums.ContractTypes" Collapsed="true">
+    <Position X="18.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAQAAAAAA=</HashCode>
+      <FileName>Enums\ContractTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="InsuranceCompany.Enums.UserRoles" Collapsed="true">
+    <Position X="20" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAEAAAAAAAA=</HashCode>
+      <FileName>Enums\UserRoles.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

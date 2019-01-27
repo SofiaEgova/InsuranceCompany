@@ -159,5 +159,33 @@ namespace InsuranceCompany.Services
                 return ResultService.Error(ex);
             }
         }
+
+        public ResultService CloseContracts()
+        {
+            try
+            {
+                var query = _context.Contracts.AsQueryable();
+
+                query = query.OrderBy(c => c.Date);
+
+                foreach(var c in query)
+                {
+                    if (c.ExpirationDate < DateTime.Now) c.Status = 0;
+                }
+                _context.SaveChanges();
+
+                var result = true;
+
+                return ResultService.Success(result);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService.Error(ex);
+            }
+        }
     }
 }

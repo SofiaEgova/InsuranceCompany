@@ -1,5 +1,6 @@
 ﻿using InsuranceCompany.BindingModels;
 using InsuranceCompany.IServices;
+using InsuranceCompany.Models;
 using InsuranceCompany.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -43,8 +44,7 @@ namespace InsuranceCompany.Services
                                 .Skip(model.PageSize.Value * model.PageNumber.Value)
                                 .Take(model.PageSize.Value);
                 }
-
-                //query = query.Include(d => d.DisciplineBlock);    нужен там, где вверху есть еще чей-то Id
+                
 
                 var result = new ClientPageViewModel
                 {
@@ -154,6 +154,143 @@ namespace InsuranceCompany.Services
             catch (Exception ex)
             {
                 return ResultService.Error(ex);
+            }
+        }
+
+        public ResultService<ClientPageViewModel> GetClientsBySum(ClientGetBindingModel model)
+        {
+            try
+            {
+                int countPages = 0;
+
+                List<Client> q = new List<Client>();
+                var contracts = _context.Contracts.Where(c => c.Amount > 1000000);
+                var clients = _context.Clients;
+                foreach(var con in contracts)
+                {
+                    foreach(var cl in clients)
+                    {
+                        if (con.ClientId == cl.Id)
+                        {
+                            q.Add(cl);
+                        }
+                    }
+                }
+                var query = q.Distinct().AsQueryable();
+
+                query = query.OrderBy(c => c.FullName);
+
+                if (model.PageNumber.HasValue && model.PageSize.HasValue)
+                {
+                    countPages = (int)Math.Ceiling((double)query.Count() / model.PageSize.Value);
+                    query = query
+                                .Skip(model.PageSize.Value * model.PageNumber.Value)
+                                .Take(model.PageSize.Value);
+                }
+
+
+                var result = new ClientPageViewModel
+                {
+                    MaxCount = countPages,
+                    List = query.Select(ModelFactoryToViewModel.CreateClientViewModel).ToList()
+                };
+
+                return ResultService<ClientPageViewModel>.Success(result);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService<ClientPageViewModel>.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService<ClientPageViewModel>.Error(ex);
+            }
+        }
+
+        public ResultService<ClientPageViewModel> GetClientsByDate(ClientGetBindingModel model)
+        {
+            try
+            {
+                int countPages = 0;
+
+                List<Client> q = new List<Client>();
+                var contracts = _context.Contracts.Where(c => c.ExpirationDate.Year==DateTime.Now.Year).OrderBy(c=>c.Date);
+                var clients = _context.Clients;
+                foreach (var con in contracts)
+                {
+                    foreach (var cl in clients)
+                    {
+                        if (con.ClientId == cl.Id)
+                        {
+                            q.Add(cl);
+                        }
+                    }
+                }
+                var query = q.Distinct().AsQueryable();
+
+                query = query.OrderBy(c => c.FullName);
+
+                if (model.PageNumber.HasValue && model.PageSize.HasValue)
+                {
+                    countPages = (int)Math.Ceiling((double)query.Count() / model.PageSize.Value);
+                    query = query
+                                .Skip(model.PageSize.Value * model.PageNumber.Value)
+                                .Take(model.PageSize.Value);
+                }
+
+
+                var result = new ClientPageViewModel
+                {
+                    MaxCount = countPages,
+                    List = query.Select(ModelFactoryToViewModel.CreateClientViewModel).ToList()
+                };
+
+                return ResultService<ClientPageViewModel>.Success(result);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService<ClientPageViewModel>.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService<ClientPageViewModel>.Error(ex);
+            }
+        }
+
+        public ResultService<ClientPageViewModel> GetClientsByNumber(ClientGetBindingModel model, int number)
+        {
+            try
+            {
+                int countPages = 0;
+
+                var query = _context.Clients.Where(c => c.PassportNumber == number);
+
+                query = query.OrderBy(c => c.FullName);
+
+                if (model.PageNumber.HasValue && model.PageSize.HasValue)
+                {
+                    countPages = (int)Math.Ceiling((double)query.Count() / model.PageSize.Value);
+                    query = query
+                                .Skip(model.PageSize.Value * model.PageNumber.Value)
+                                .Take(model.PageSize.Value);
+                }
+
+
+                var result = new ClientPageViewModel
+                {
+                    MaxCount = countPages,
+                    List = query.Select(ModelFactoryToViewModel.CreateClientViewModel).ToList()
+                };
+
+                return ResultService<ClientPageViewModel>.Success(result);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService<ClientPageViewModel>.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService<ClientPageViewModel>.Error(ex);
             }
         }
     }

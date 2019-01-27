@@ -60,12 +60,12 @@ namespace InsuranceCompany.Services
             }
         }
 
-        public ResultService<DirectoryViewModel> GetDirectory(DirectoryGetBindingModel model)
+        public ResultService<DirectoryViewModel> GetDirectory(int type, int term)
         {
             try
             {
                 var entity = _context.Directories
-                                .FirstOrDefault(c => c.Id == model.Id);
+                                .FirstOrDefault(c => c.InsuranceTerm==term&&c.InsuranceType==type);
                 if (entity == null)
                 {
                     return ResultService<DirectoryViewModel>.Error("Error:", "Entity not found");
@@ -150,6 +150,29 @@ namespace InsuranceCompany.Services
             catch (Exception ex)
             {
                 return ResultService.Error(ex);
+            }
+        }
+
+        public ResultService<DirectoryViewModel> GetDirectory(DirectoryGetBindingModel model)
+        {
+            try
+            {
+                var entity = _context.Directories
+                                .FirstOrDefault(c => c.Id == model.Id);
+                if (entity == null)
+                {
+                    return ResultService<DirectoryViewModel>.Error("Error:", "Entity not found");
+                }
+
+                return ResultService<DirectoryViewModel>.Success(ModelFactoryToViewModel.CreateDirectoryViewModel(entity));
+            }
+            catch (DbEntityValidationException ex)
+            {
+                return ResultService<DirectoryViewModel>.Error(ex);
+            }
+            catch (Exception ex)
+            {
+                return ResultService<DirectoryViewModel>.Error(ex);
             }
         }
     }

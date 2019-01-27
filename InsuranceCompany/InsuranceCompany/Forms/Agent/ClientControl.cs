@@ -48,24 +48,6 @@ namespace InsuranceCompany.Forms.Agent
             standartControl1.Configurate(columns, hideToolStripButtons);
 
             standartControl1.GetPageAddEvent(LoadRecords);
-            //standartControl1.ToolStripButtonAddEventClickAddEvent((object sender, EventArgs e) => { AddRecord(); });
-            //standartControl1.ToolStripButtonUpdEventClickAddEvent((object sender, EventArgs e) => { UpdRecord(); });
-            //standartControl1.ToolStripButtonDelEventClickAddEvent((object sender, EventArgs e) => { DelRecord(); });
-            //standartControl1.DataGridViewListEventCellDoubleClickAddEvent((object sender, DataGridViewCellEventArgs e) => { UpdRecord(); });
-            //standartControl1.DataGridViewListEventKeyDownAddEvent((object sender, KeyEventArgs e) => {
-            //    switch (e.KeyCode)
-            //    {
-            //        case Keys.Insert:
-            //            AddRecord();
-            //            break;
-            //        case Keys.Enter:
-            //            UpdRecord();
-            //            break;
-            //        case Keys.Delete:
-            //            DelRecord();
-            //            break;
-            //    }
-            //});
         }
 
         public void LoadData()
@@ -82,23 +64,28 @@ namespace InsuranceCompany.Forms.Agent
 
             if (filterSum)
             {
-                //var resContracts = _serviceContract.GetContracts(new ContractGetBindingModel { PageNumber = pageNumber, PageSize = pageSize }).Result.List.Where(c => c.Amount >= 1000000);
-                //var resClients = _serviceClient.GetClients(new ClientGetBindingModel { PageNumber = pageNumber, PageSize = pageSize }).Result;
-                //foreach(var cl in resClients.List)
-                //{
-                //    foreach (var con in resContracts)
-                //    {
-                //        if (cl.Id == con.ClientId)
-                //    }
-                //}
+                result = _serviceClient.GetClientsBySum(new ClientGetBindingModel { PageNumber = pageNumber, PageSize = pageSize });
+                filterSum = false;
             }
             else if (filterDate)
             {
-
+                result = _serviceClient.GetClientsByDate(new ClientGetBindingModel { PageNumber = pageNumber, PageSize = pageSize });
+                filterDate = false;
             }
             else if (filter)
             {
-                //result = _serviceClient.GetClients(new ClientGetBindingModel{PageNumber = pageNumber, PageSize = pageSize }).Result.List.Where(c => c.PassportNumber == Convert.ToInt32(textBoxNumber.Text));
+                int n = 0;
+                try
+                {
+                    n=Convert.ToInt32(textBoxNumber.Text);
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("Нету клиента с таким паспортом", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return -1;
+                }
+                result = _serviceClient.GetClientsByNumber(new ClientGetBindingModel { PageNumber = pageNumber, PageSize = pageSize }, n);
+                filter = false;
             }
             else result = _serviceClient.GetClients(new ClientGetBindingModel { PageNumber = pageNumber, PageSize = pageSize });
             if (!result.Succeeded)
@@ -121,72 +108,19 @@ namespace InsuranceCompany.Forms.Agent
         private void buttonFilterSum_Click(object sender, EventArgs e)
         {
             filterSum = true;
-            standartControl1.Refresh();
+            standartControl1.LoadPage();
         }
 
         private void buttonFilterDate_Click(object sender, EventArgs e)
         {
             filterDate = true;
-            standartControl1.Refresh();
+            standartControl1.LoadPage();
         }
 
         private void buttonFind_Click(object sender, EventArgs e)
         {
             filter = true;
-            standartControl1.Refresh();
+            standartControl1.LoadPage();
         }
-
-        //private void AddRecord()
-        //{
-        //    var form = Container.Resolve<UserForm>(
-        //        new ParameterOverrides
-        //        {
-        //            { "id", Guid.Empty }
-        //        }
-        //        .OnType<UserForm>());
-        //    if (form.ShowDialog() == DialogResult.OK)
-        //    {
-        //        standartControl1.LoadPage();
-        //    }
-        //}
-
-        //private void UpdRecord()
-        //{
-        //    if (standartControl1.GetDataGridViewSelectedRows.Count == 1)
-        //    {
-        //        Guid id = new Guid(standartControl1.GetDataGridViewSelectedRows[0].Cells[0].Value.ToString());
-        //        var form = Container.Resolve<UserForm>(
-        //            new ParameterOverrides
-        //            {
-        //                { "id", id }
-        //            }
-        //            .OnType<UserForm>());
-        //        if (form.ShowDialog() == DialogResult.OK)
-        //        {
-        //            standartControl1.LoadPage();
-        //        }
-        //    }
-        //}
-
-        //private void DelRecord()
-        //{
-        //    if (standartControl1.GetDataGridViewSelectedRows.Count > 0)
-        //    {
-        //        if (MessageBox.Show("Вы уверены, что хотите удалить?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-        //        {
-        //            for (int i = 0; i < standartControl1.GetDataGridViewSelectedRows.Count; ++i)
-        //            {
-        //                Guid id = new Guid(standartControl1.GetDataGridViewSelectedRows[i].Cells[0].Value.ToString());
-        //                var result = _service.DeleteUser(new UserGetBindingModel { Id = id });
-        //                if (!result.Succeeded)
-        //                {
-        //                    //Program.PrintErrorMessage("При удалении возникла ошибка: ", result.Errors);
-        //                    throw new Exception("При загрузке возникла ошибка: " + result.Errors);
-        //                }
-        //            }
-        //            standartControl1.LoadPage();
-        //        }
-        //    }
-        //}
     }
 }

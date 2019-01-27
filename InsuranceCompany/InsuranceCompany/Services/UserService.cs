@@ -204,7 +204,9 @@ namespace InsuranceCompany.Services
                 {
                     return ResultService.Error("Error:", "Entity not found");
                 }
-                UpdateUser(new UserSetBindingModel { FullName = entity.FullName, Id = entity.Id, Login = entity.Login, Password = entity.Password, UserRole = entity.UserRole, IsActive = false });
+                //UpdateUser(new UserSetBindingModel { FullName = entity.FullName, Id = entity.Id, Login = entity.Login, Password = entity.Password, UserRole = entity.UserRole, IsActive = false });
+                entity.IsActive = false;
+                _context.SaveChanges();
 
                 return ResultService.Success();
             }

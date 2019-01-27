@@ -28,6 +28,10 @@ namespace InsuranceCompany.Models
         [DataMember]
         public int InsuranceType { get; set; }
 
+        [Required]
+        [DataMember]
+        public int InsuranceTerm { get; set; }
+
         //-----------------------
 
         [ForeignKey("DirectoryId")]
